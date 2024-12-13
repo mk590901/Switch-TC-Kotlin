@@ -47,6 +47,10 @@ class SwitchResetHelper {
         helper_.post(eventName)
     }
 
+    fun state() : String {
+        return helper_.getState()
+    }
+
     private fun createHelper() {
         helper_.insert("switch", "init", ThreadedCodeExecutor(helper_, "off", listOf(
             // ::switchEntry,

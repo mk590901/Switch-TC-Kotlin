@@ -1,8 +1,7 @@
 package com.widget.switchkttc
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -18,11 +17,18 @@ class ExampleUnitTest {
     @Test
     fun testSwitch() {
         val hsmHelper = SwitchResetHelper()
+        assertEquals(hsmHelper.state(), "switch")
         hsmHelper.init()
+        assertEquals(hsmHelper.state(), "off")
         hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "on")
         hsmHelper.run("RESET")
+        assertEquals(hsmHelper.state(), "off")
         hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "on")
         hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "off")
         hsmHelper.run("RESET")
+        assertEquals(hsmHelper.state(), "off")
     }
 }
