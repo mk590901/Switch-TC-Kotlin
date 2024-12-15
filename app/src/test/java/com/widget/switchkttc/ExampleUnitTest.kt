@@ -16,7 +16,7 @@ class ExampleUnitTest {
 
     @Test
     fun testSwitch() {
-        val hsmHelper = SwitchResetHelper()
+        val hsmHelper = Switch_resetHelper()
         assertEquals(hsmHelper.state(), "switch")
         hsmHelper.init()
         assertEquals(hsmHelper.state(), "off")

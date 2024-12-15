@@ -1,6 +1,8 @@
+//	Class Switch_resetHelper automatically generated at 2024-12-15 14:47:57
+
 package com.widget.switchkttc
 
-class SwitchResetHelper {
+class Switch_resetHelper {
     private val helper_ = QHsmHelper("switch")
 
     init {
