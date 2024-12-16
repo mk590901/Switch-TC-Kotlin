@@ -10,7 +10,7 @@ The editor's __Planner__ module was supplemented with a __Kotlin__ code generato
 
 The generated __Switch_resetHelper.kt__ file is a skeleton for the logical part of the application, namely the list and bodies of empty transfer functions that can and should be filled with some content. For example, with trace elements in the simplest case. Some functions may not be used and should be deleted or commented out:
 
-```
+```kotlin
 
 //	Class Switch_resetHelper automatically generated at 2024-12-15 14:47:57
 
