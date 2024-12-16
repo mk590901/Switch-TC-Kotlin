@@ -8,7 +8,98 @@ The editor's __Planner__ module was supplemented with a __Kotlin__ code generato
 
 # Code modification
 
-The generated __Switch_resetHelper.kt__ file is a skeleton for the logical part of the application, namely the list and bodies of empty transfer functions that can and should be filled with some content. For example, with trace elements in the simplest case. Some functions may not be used and should be deleted or commented out.
+The generated __Switch_resetHelper.kt__ file is a skeleton for the logical part of the application, namely the list and bodies of empty transfer functions that can and should be filled with some content. For example, with trace elements in the simplest case. Some functions may not be used and should be deleted or commented out:
+
+```
+
+//	Class Switch_resetHelper automatically generated at 2024-12-15 14:47:57
+
+package com.widget.switchkttc
+
+class Switch_resetHelper {
+    private val helper_ = QHsmHelper("switch")
+
+    init {
+        createHelper()
+    }
+
+    // fun switchEntry(data: Any? = null) {
+    // }
+    //
+    // fun switchInit(data: Any? = null) {
+    // }
+
+    fun offEntry(data: Any? = null) {
+        println("OFF")
+    }
+
+    fun offReset(data: Any? = null) {
+        println("@RESET")
+    }
+
+    // fun offExit(data: Any? = null) {
+    // }
+
+    fun offTurn(data: Any? = null) {
+        println("OFF: TURN")
+    }
+
+    fun onEntry(data: Any? = null) {
+        println("ON ")
+    }
+
+    // fun onExit(data: Any? = null) {
+    // }
+
+    fun onTurn(data: Any? = null) {
+        println("ON : TURN")
+    }
+
+    fun init() {
+        helper_.post("init")
+    }
+
+    fun run(eventName: String) {
+        helper_.post(eventName)
+    }
+
+    fun state() : String {
+        return helper_.getState()
+    }
+
+    private fun createHelper() {
+        helper_.insert("switch", "init", ThreadedCodeExecutor(helper_, "off", listOf(
+            // ::switchEntry,
+            // ::switchInit,
+            ::offEntry,
+        )))
+        helper_.insert("off", "RESET", ThreadedCodeExecutor(helper_, "off", listOf(
+            ::offReset,
+            // ::offExit,
+            // ::switchInit,
+            ::offEntry,
+        )))
+        helper_.insert("off", "TURN", ThreadedCodeExecutor(helper_, "on", listOf(
+            ::offTurn,
+            ::onEntry,
+        )))
+        helper_.insert("on", "RESET", ThreadedCodeExecutor(helper_, "off", listOf(
+            ::offReset,
+            // ::onExit,
+            // ::offExit,
+            // ::switchInit,
+            ::offEntry,
+        )))
+        helper_.insert("on", "TURN", ThreadedCodeExecutor(helper_, "off", listOf(
+            ::onTurn,
+            // ::onExit,
+            // ::offExit,
+            // ::switchInit,
+            ::offEntry,
+        )))
+    }
+}
+```
 
 # Description of the application
 
