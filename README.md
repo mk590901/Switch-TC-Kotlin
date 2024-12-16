@@ -105,6 +105,30 @@ class Switch_resetHelper {
 
 The application does not contain activity, so it is impossible to run it on a phone or tablet. Can run the unit test testSwitch(), which traces the state machine:
 
+```kotlin
+class ExampleUnitTest {
+    @Test
+    fun testSwitch() {
+        val hsmHelper = Switch_resetHelper()
+        assertEquals(hsmHelper.state(), "switch")
+        hsmHelper.init()
+        assertEquals(hsmHelper.state(), "off")
+        hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "on")
+        hsmHelper.run("RESET")
+        assertEquals(hsmHelper.state(), "off")
+        hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "on")
+        hsmHelper.run("TURN")
+        assertEquals(hsmHelper.state(), "off")
+        hsmHelper.run("RESET")
+        assertEquals(hsmHelper.state(), "off")
+    }
+}
+```
+
+> Result
+
 ```
 > Task :app:testDebugUnitTest
 OFF
