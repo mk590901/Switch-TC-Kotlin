@@ -20,7 +20,6 @@ class QHsmHelper(private var _state: String) : IQHsmStateMachineHelper {
             return null
         }
         val executor = _container[key]
-        //executor?.trace(_state, event)
         return executor
     }
 
@@ -29,7 +28,6 @@ class QHsmHelper(private var _state: String) : IQHsmStateMachineHelper {
     }
 
     override fun setState(state: String) {
-        //println("******* QHsmHelper.setState $_state->$state *******")
         _state = state
     }
 
